@@ -7,10 +7,6 @@ contract Hello {
 
     event Hi(address sender, uint256 sayCount);
 
-    constructor() {
-        owner = msg.sender;
-    }
-
     // Modifier to check that the caller is the owner of
     // the contract.
     modifier onlyOwner() {
@@ -21,8 +17,8 @@ contract Hello {
         _;
     }
 
-    function showMe() public view returns (uint256) {
-        return sayCount;
+    constructor() {
+        owner = msg.sender;
     }
 
     function sayHi() public {
@@ -32,5 +28,9 @@ contract Hello {
 
     function reOpen() public onlyOwner {
         sayCount = 0;
+    }
+
+    function showMe() public view returns (uint256) {
+        return sayCount;
     }
 }
