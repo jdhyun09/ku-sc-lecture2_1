@@ -9,7 +9,7 @@ contract TrafficLight {
 
 	LightState public currentLight;
 
-	constructor(){
+	constructor() {
         currentLight = LightState.Red;
 	}
 
